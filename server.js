@@ -3,8 +3,13 @@ const hbs = require('hbs');
 
 var app = express();
 
+hbs.registerPartials(__dirname + '/views/partials');
 app.set('view engine', 'hbs');
 app.use(express.static(__dirname + '/public'));
+
+hbs.registerHelper('getCurrentYear', () => {
+    return new Date().getFullYear()
+});
 
 // //SET ROUTE
 // app.get('/', (req, res) => {
@@ -22,7 +27,6 @@ app.use(express.static(__dirname + '/public'));
 app.get('/', (req, res) => {
     res.render('index.hbs', {
         pageTitle: 'Home Page',
-        currentYear: new Date().getFullYear(),
         welcomeMessage: 'Welcome!'
     });
 });
@@ -30,8 +34,7 @@ app.get('/', (req, res) => {
 // ABOUT ROUTE
 app.get('/about', (req, res) => {
     res.render('about.hbs', {
-        pageTitle: 'About Page',
-        currentYear: new Date().getFullYear()
+        pageTitle: 'About Page'
     });
 });
 
