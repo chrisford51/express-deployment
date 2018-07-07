@@ -2,6 +2,8 @@ const express = require('express');
 
 var app = express();
 
+app.use(express.static(__dirname + '/public'));
+
 //SET ROUTE
 app.get('/', (req, res) => {
     //res.send('Hello Express!');
@@ -25,4 +27,6 @@ app.get('/bad', (req, res) => {
 });
 
 //SET PORT FOR EXPRESS TO LISTEN
-app.listen(1337);
+app.listen(1337, () => {
+    console.log('Server is up on port 1337');
+});
