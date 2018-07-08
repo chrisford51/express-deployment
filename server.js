@@ -4,6 +4,8 @@ const express = require('express');
 const hbs = require('hbs');
 // require filesystem dependency
 const fs = require('fs');
+// store the port we are using for the App
+const port = process.env.PORT || 1337;
 
 // create variable for express application
 var app = express();
@@ -87,6 +89,6 @@ app.get('/bad', (req, res) => {
 // });
 
 //SET PORT FOR EXPRESS TO LISTEN
-app.listen(1337, () => {
-    console.log('Server is up on port 1337');
+app.listen(port, () => {
+    console.log(`Server is up on port ${port}`);
 });
