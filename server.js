@@ -73,6 +73,13 @@ app.get('/about', (req, res) => {
     });
 });
 
+//PROJECTS ROUTE
+app.get('/projects', (req, res) => {
+    res.render('projects.hbs', {
+        pageHeading: 'These are my projects!'
+    })
+});
+
 // BAD LINK ERROR ROUTE
 app.get('/bad', (req, res) => {
     res.send({
